@@ -1,0 +1,21 @@
+
+
+<h1>Game Collection</h1>
+<div class="container">
+    <div id="game-{{game.id}}" *ngFor="let game of games.items; let i = index" class="tile" style="order:{{game.playSort}};" (click)="onClick($event, game)"
+    [@upDown]="game.state" 
+    >
+        <div class="name">
+            <span>{{game.name}}</span>
+        </div>
+        <div class="image">
+            <img class="cover" src="{{game.image[0]}}" />
+        </div>
+
+        <div class="bar" style="width:{{game.width}}%; background-color:{{game.color}}">
+        </div>
+        <div class="plays">
+            <span>{{game.plays}}</span>
+        </div>
+    </div>
+</div>

@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
+import { AppRoutingModule} from './app.routing.module'
+import { GameListComponent } from './components/game-list/game-list.component';
 import { AppComponent } from './app.component';
+import { BggService } from './services/bggService';
+import { CacheService } from './services/cacheService'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    BggService,
+    CacheService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
