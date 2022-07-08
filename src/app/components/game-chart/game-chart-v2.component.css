@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-width: 60px;
+}
+
+.cover {
+    object-fit: contain;
+    height: 30px;
+    width: 30px;
+}
+
+.bar {
+    border: 2px solid black;
+    transition: width 0.1s;
+    border-radius: 5px;
+}
+
+.plays {
+    text-align: center;
+    font-weight: bolder;
+    padding-left: 10px;
+    padding-top: 8px;
+    vertical-align: middle;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.image {
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.name {
+    text-align: right;
+    font-weight: bolder;
+    padding-right: 10px;
+    padding-top: 8px;
+    height: 30px;
+    width: 15%;
+}

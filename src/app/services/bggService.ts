@@ -20,7 +20,15 @@ export class BggService {
           const games = JSON.parse(cacheItems)
           const mappedGames = this.map(games);
 
+          mappedGames.items.sort(this.sortByPlays);
+
           console.log('mappedGames', mappedGames);
+
+          mappedGames.items.forEach((game: any, rank: any) => {
+            rank++;
+            game.rank = rank;
+            game.startRank = rank;
+          });
 
           return mappedGames;
         }
@@ -44,17 +52,25 @@ export class BggService {
     }
 
     map(items: any) {
-      const returnValue = {
+      const games = {
         totalItems: items.$.totalitems,
         pubdate: items.$.pubdate,
         items: items.item.map(this.mapItem)
       }
 
-      console.log('map', returnValue);
-      return returnValue;
+      console.log('map', games);
+      return games;
     }
 
-    
+    sortByPlays(a: any, b: any) {
+      if (parseInt(a.plays) < parseInt(b.plays)){
+        return 1;
+      }
+      if (parseInt(a.plays) > parseInt(b.plays)){
+        return -1;
+      }
+      return 0;
+    }
 
     mapItem(item: any) {
       const mapStats = (stat: any) => {
@@ -82,10 +98,12 @@ export class BggService {
         type: item.$.subtype,
         name: item.name[0]._,
         image: item.image,
-        plays: item.numplays[0],
+        plays: parseInt(item.numplays[0]),
         playSort: 1000 - item.numplays[0],
         stats: mapStats(item.stats[0]),
-        color: getRandomColor()
+        color: getRandomColor(),
+        moveUpHeight: -38,
+        moveDownHeight: 38,
       }
 
       return returnValue;

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule} from './app.routing.module'
 import { GameListComponent } from './components/game-list/game-list.component';
+import { GameChartV2 } from './components/game-chart/game-chart-v2.component';
 import { AppComponent } from './app.component';
 import { BggService } from './services/bggService';
 import { CacheService } from './services/cacheService'
@@ -11,7 +12,8 @@ import { CacheService } from './services/cacheService'
 @NgModule({
   declarations: [
     AppComponent,
-    GameListComponent
+    GameListComponent,
+    GameChartV2
   ],
   imports: [
     BrowserModule,

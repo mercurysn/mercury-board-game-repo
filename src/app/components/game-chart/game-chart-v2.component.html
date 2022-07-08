@@ -1,9 +1,7 @@
-
-
-<h1>Game Collection</h1>
+<h1>Game Plays over time</h1>
 <div class="container">
-    <div id="game-{{game.id}}" *ngFor="let game of games.items; let i = index" class="tile" style="order:{{game.playSort}};" (click)="onClick($event, game)"
-    [@upDown]="game.state" 
+    <div id="game-{{game.id}}" *ngFor="let game of games.items; let i = index" class="tile" (click)="onClick($event, game)"
+    [@upDown]="{value: game.states, params:{ moveUpHeight: game.moveUpHeight, moveDownHeight: game.moveDownHeight }}" 
     >
         <div class="name">
             <span>{{game.name}}</span>
@@ -15,7 +13,7 @@
         <div class="bar" style="width:{{game.width}}%; background-color:{{game.color}}">
         </div>
         <div class="plays">
-            <span>{{game.plays}}</span>
+            <span>{{game.plays}}({{game.rank}})</span>
         </div>
     </div>
 </div>
